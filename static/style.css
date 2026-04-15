@@ -1,0 +1,188 @@
+/* ===== 全局重置：清除所有元素的默认边距、内边距，统一盒模型 ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== 页面主体：纵向居中布局，浅灰背景 ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 16px;
+    min-height: 100vh;
+}
+
+/* ===== 页面标题 ===== */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 24px;
+    font-size: 2rem;
+}
+
+/* ===== 新建任务表单：横向排列，支持换行 ===== */
+form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+/* 表单文本输入框 */
+form input[type="text"] {
+    flex: 1;
+    min-width: 120px;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+/* 输入框聚焦时高亮边框 */
+form input[type="text"]:focus {
+    border-color: #4a90e2;
+}
+
+/* 表单提交（创建）按钮 */
+form button[type="submit"] {
+    padding: 6px 16px;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+form button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* ===== 待办事项列表容器 ===== */
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ===== 单条待办事项卡片 ===== */
+li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background-color: #fff;
+    padding: 14px 18px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s;
+}
+
+/* 卡片悬停时加深阴影 */
+li:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* li 内的通用 span（兼容旧结构） */
+li span {
+    flex: 1;
+    font-size: 15px;
+    color: #333;
+    word-break: break-word;
+}
+
+/* ===== 待办事项文字区域：名称与描述纵向排列 ===== */
+.todo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+}
+
+/* 任务名称 */
+.todo-name {
+    font-size: 20px;
+    color: #333;
+}
+
+/* 任务描述：字号略小，灰色，左侧缩进与名称区分 */
+.todo-desc {
+    font-size: 18px;
+    color: #888;
+    margin-left: 30px;
+}
+
+/* 已完成状态：名称与描述均显示删除线并变灰 */
+.todo-text.completed .todo-name,
+.todo-text.completed .todo-desc {
+    text-decoration: line-through;
+    color: #aaa;
+}
+
+/* ===== 内联编辑区域（点击"更新"后显示） ===== */
+.edit-area {
+    flex: 1;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+/* 编辑模式下的输入框 */
+.edit-input {
+    flex: 1;
+    padding: 4px 8px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.edit-input:focus {
+    border-color: #4a90e2;
+}
+
+/* ===== 操作按钮通用样式 ===== */
+li button {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+}
+
+/* 完成 / 撤销 按钮 */
+li button:first-of-type {
+    background-color: #52c41a;
+    color: #fff;
+}
+
+li button:first-of-type:hover {
+    background-color: #3da012;
+}
+
+/* 删除按钮 */
+li button:last-of-type {
+    background-color: #ff4d4f;
+    color: #fff;
+}
+
+li button:last-of-type:hover {
+    background-color: #cc0002;
+}
+
+/* ===== 页面整体内容区域宽度限制 ===== */
+.container {
+    width: 100%;
+    max-width: 600px;
+}
