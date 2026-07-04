@@ -37,6 +37,7 @@ func main() {
 
 	//delete
 	http.HandleFunc("/delete", enableCORS(handleDeleteTodos))
+	http.Handle("/", http.FileServer(http.Dir("./static")))
 
 	log.Printf("Starting server on :8080")
 
